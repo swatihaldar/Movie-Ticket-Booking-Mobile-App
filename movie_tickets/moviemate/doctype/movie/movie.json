@@ -1,0 +1,97 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-10-18 11:35:44.918770",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "title",
+  "director",
+  "genre",
+  "language",
+  "duration",
+  "column_break_zkzx",
+  "release_date",
+  "sysnopsis",
+  "poster"
+ ],
+ "fields": [
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Title",
+   "reqd": 1
+  },
+  {
+   "fieldname": "poster",
+   "fieldtype": "Attach",
+   "label": "Poster"
+  },
+  {
+   "fieldname": "sysnopsis",
+   "fieldtype": "Small Text",
+   "label": "Sysnopsis"
+  },
+  {
+   "fieldname": "column_break_zkzx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "director",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Director",
+   "reqd": 1
+  },
+  {
+   "fieldname": "release_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Release Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "genre",
+   "fieldtype": "Data",
+   "label": "Genre"
+  },
+  {
+   "fieldname": "language",
+   "fieldtype": "Data",
+   "label": "Language"
+  },
+  {
+   "fieldname": "duration",
+   "fieldtype": "Duration",
+   "label": "Duration"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-11-14 11:56:45.422084",
+ "modified_by": "Administrator",
+ "module": "MovieMate",
+ "name": "Movie",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "title",
+ "track_changes": 1
+}

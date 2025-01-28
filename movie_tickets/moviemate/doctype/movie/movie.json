@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:{title}",
  "creation": "2024-10-18 11:35:44.918770",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -10,10 +11,19 @@
   "genre",
   "language",
   "duration",
+  "rating",
   "column_break_zkzx",
   "release_date",
   "sysnopsis",
-  "poster"
+  "poster",
+  "status",
+  "trailer",
+  "section_break_hoha",
+  "backgroung_image",
+  "image1",
+  "column_break_actw",
+  "image2",
+  "image3"
  ],
  "fields": [
   {
@@ -65,14 +75,62 @@
    "fieldname": "duration",
    "fieldtype": "Duration",
    "label": "Duration"
+  },
+  {
+   "fieldname": "backgroung_image",
+   "fieldtype": "Attach",
+   "label": "Backgroung Image"
+  },
+  {
+   "fieldname": "rating",
+   "fieldtype": "Rating",
+   "label": "Rating"
+  },
+  {
+   "fieldname": "section_break_hoha",
+   "fieldtype": "Section Break",
+   "label": "Images"
+  },
+  {
+   "fieldname": "image1",
+   "fieldtype": "Attach",
+   "label": "Image1"
+  },
+  {
+   "fieldname": "image2",
+   "fieldtype": "Attach",
+   "label": "Image2"
+  },
+  {
+   "fieldname": "image3",
+   "fieldtype": "Attach",
+   "label": "Image3"
+  },
+  {
+   "fieldname": "column_break_actw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "In Theatre\nUpcoming"
+  },
+  {
+   "fieldname": "trailer",
+   "fieldtype": "Attach",
+   "label": "Trailer"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-14 11:56:45.422084",
+ "modified": "2024-12-24 19:39:45.555523",
  "modified_by": "Administrator",
  "module": "MovieMate",
  "name": "Movie",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
@@ -91,7 +149,16 @@
  "show_title_field_in_link": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": [],
+ "states": [
+  {
+   "color": "Green",
+   "title": "In Theatre"
+  },
+  {
+   "color": "Yellow",
+   "title": "Upcoming"
+  }
+ ],
  "title_field": "title",
  "track_changes": 1
 }

@@ -1,68 +1,92 @@
 @import './assets/Inter/inter.css';
 @import 'frappe-ui/src/style.css';
 
+.background-container {
+  position: relative; /* Ensure pseudo-elements position relative to this element */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh; /* Ensures the background covers the full height */
+  color: white; /* Adjust text color to ensure visibility */
+  z-index: 1; /* Ensures content stays above the overlay */
+}
 
-.title-section {
-    text-align: center;
-    margin-top: 2rem;
+.background-container::before {
+  content: ""; /* Necessary for pseudo-element */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgb(0, 0, 0), rgba(139, 138, 212, 0.466));
+  opacity: 0.7; /* Adjust transparency */
+  z-index: -1; /* Places the overlay below the content */
 }
 
 
+
+
+.title-section {
+  margin: 0;
+  text-align: center;
+  padding-top: 6rem;
+}
+
 .movie-title {
-    color: #1f2937;
-    font-weight: bold;
-    font-size: 2rem; /* 32px */
-    transition: color 0.3s ease, transform 0.3s ease;
-    cursor: pointer;
-    animation: fadeIn 0.6s ease-out;
-    text-transform: uppercase;
+  color: #eeeff1;
+  font-weight: 800; /* Extra Bold */
+  font-size: 2.5rem; /* Increased size */
+  line-height: 1.2; /* Better spacing */
+  text-transform: uppercase; /* Makes the title stand out */
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .movie-title:hover {
-    color: #2563eb;
-    transform: scale(1.1);
+  /* color: #949cad; */
+  /* transform: scale(1.1); */
 }
+
 
 .movie-info-card {
-    max-width: 600px;
-    margin: 2rem auto;
-    padding: 1.5rem;
-    background-color: #ffffff; 
-    border-radius: 8px;
-    /* box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);  */
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-    transition: transform 0.3s ease;
+  max-width: 650px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  /* background-color: #ffffff;  */
+  border-radius: 5px;
+  border: 2px #a6a9ad solid;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Hover Effect on Card */
-/* .movie-info-card:hover {
-    transform: scale(1.02);
-} */
+.movie-info-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+}
 
 .info-block {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .movie-info-heading {
-    font-size: 0.875rem;
-    font-weight: bold;
-    color: #4a4a4a;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
+  font-size: 0.875rem;
+  font-weight: bold;
+  color: #ac9f9f;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
-
 
 .movie-info-text {
-    color: #333333;
-    font-size: 1.125rem; 
-    font-weight: 600;
+  color: #e9dede;
+  font-size: 1.125rem; 
+  font-weight: 600;
 }
+
 
 @keyframes fadeIn {
     0% {
@@ -84,47 +108,167 @@
 }
 
 .movie-card {
-  background-color: #ffffff;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  gap: 16px;
+  overflow: hidden;
 }
 
 .poster-section {
+  flex: 1;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .movie-poster {
   width: 100%;
   max-width: 300px;
   border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  height: 41vh;
+}
+
+.details-section {
+  flex: 2;
+  padding: 16px;
+  color: #ffffff;
 }
 
 .details-section h2 {
   margin-bottom: 10px;
+  font-size: 1.4rem;
 }
 
 .details-section p {
-  margin-bottom: 8px;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
 }
 
+.highlight-label {
+  color: #ff1744;
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+/* .star-rating {
+  font-size: 1.2rem;
+  color: #ffeb3b;
+} */
+
+.star.empty {
+  color: #444444; 
+}
+
+/* Booking Button */
+.booking-button {
+  background-color: #ff1744;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 12px 90px;
+  transition: transform 0.3s, background-color 0.3s;
+  /* border-radius: 8px; */
+  /* border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px; */
+}
+
+.booking-button:hover {
+  transform: scale(1.05);
+  background-color: #d50000;
+}
+
+
+/* Trailer button  */
+
+.trailer-button{
+  background-color: #0b3766;
+  margin-top: 16px;
+  padding: 6px 20px ;
+  font-size: 18px;
+  color: var(--text-neutral-inverse);
+  font-weight: 500;
+  line-height: 24px;
+  border-radius: 20px;
+  
+}
+
+
+/* .trailer-button {
+  background-color: #ff4500;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+} */
+
+.trailer-button:hover {
+  background-color: #ff6347;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  position: relative;
+  width: 90%;
+  max-width: 900px;
+  /* background: #ffffff; */
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 20px;
+}
+
+
+
+.modal-close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #333333;
+}
+
+.youtube-frame {
+  width: 100%;
+  height: 400px;
+}
+
+
+/* Responsive Design */
 @media (max-width: 768px) {
-  .container {
-    padding: 8px;
-  }
-
   .movie-card {
-    padding: 12px;
+    flex-direction: column;
+    text-align: center;
   }
 
-  .movie-poster {
-    max-width: 200px;
+  .poster-section {
+    max-width: 100%;
+    margin-bottom: 16px;
   }
 
   .details-section {
-    text-align: center;
+    padding: 16px;
   }
 }
+
+
 
 
 /* page two */
@@ -159,6 +303,42 @@
 @media (max-width: 768px) {
   .seat-buttons {
     gap: 8px; 
+  }.seat-selection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px;
+  }
+  
+  .seat-selection h2 {
+    margin-bottom: 20px;
+  }
+  
+  .seat-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+  }
+  
+  .seat-button {
+    width: 60px; 
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+  }
+  
+  @media (max-width: 768px) {
+    .seat-buttons {
+      gap: 8px; 
+    }
+  
+    .seat-button {
+      width: 50px;
+      height: 50px;
+    }
   }
 
   .seat-button {
@@ -183,10 +363,11 @@
 
 .date-input {
   width: 100%;
-  border: 1px solid #ddd;
+  border: 1px solid #ddd;  /* Thin border */
   padding: 8px;
   border-radius: 8px;
   text-align: center; 
+  background-color: transparent;  /* Transparent background */
 }
 
 .theater-options {
@@ -200,6 +381,8 @@
   padding: 16px;
   border-radius: 8px;
   width: 100%;
+  background-color: transparent;  /* Transparent background */
+  border: 1px solid #ddd;  /* Thin border */
   transition: box-shadow 0.3s ease;
 }
 
@@ -215,12 +398,20 @@
 
 .show-button {
   min-width: 80px;
+  background-color: transparent;  /* Transparent background */
+  border: 1px solid #ddd;  /* Thin border */
 }
+
+.show-button{
+  color: rgb(241, 225, 225);  /* White color for start_time text */
+  font-weight: 800;
+}
+
 
 /* page four  */
 
 .select-seats {
-  max-width: 400px;
+  max-width: 500px;
   margin: 0 auto;
 }
 
@@ -229,6 +420,8 @@
   flex-direction: column;
   align-items: center;
   padding: 20px;
+  background-color: #f9fafb00; /* Slight background color for contrast */
+  border-radius: 0.5rem;
 }
 
 .seat-row {
@@ -243,12 +436,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151; /* Default text color */
   border-radius: 0.25rem;
-  transition: background-color 0.3s, transform 0.2s;
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
 }
 
 .seat:hover {
   transform: scale(1.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .bg-blue-200:hover {
@@ -258,4 +455,137 @@
 .bg-blue-600 {
   color: #fff;
 }
+
+.bg-gray-100 {
+  /* color: #ddd; */
+  /* background-color: #fdfeffdc; */
+}
+
+
+
+
+
+/* Page Five */
+
+.movie-image {
+  width: 250px; /* Adjust as needed */
+  height: 25vh; /* Maintain aspect ratio */
+  margin: 0 auto; /* Center if needed */
+}
+
+
+#last-title {
+  margin: auto;
+  letter-spacing: 0.0015em;
+  font-size: 3.5em;
+  text-shadow: 0 1px #8da1ff, -1px 0 #c0cbff, -1px 2px #8da1ff,
+    -2px 1px #c0cbff, -2px 3px #8da1ff, -3px 2px #c0cbff, -3px 4px #8da1ff,
+    -4px 3px #c0cbff, -4px 5px #8da1ff, -5px 4px #c0cbff, -5px 6px #8da1ff,
+    -6px 5px #c0cbff, -6px 7px #8da1ff, -7px 6px #c0cbff, -7px 8px #8da1ff,
+    -8px 7px #c0cbff;
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Gallery Styles */
+.gallery {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin: 2rem;
+}
+
+/* Thumbnail images */
+.thumbnail {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  cursor: pointer;
+  border: 2px solid #ddd; /* Thin border */
+  border-radius: 5px; /* Rounded corners */
+}
+
+.thumbnail:hover {
+  transform: scale(1.1); /* Slight zoom effect */
+  border-color: #007BFF; /* Change border color on hover */
+}
+
+/* Popup container */
+.popup {
+  display: flex; /* Use flexbox to center content */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Dark background overlay */
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-image {
+  max-width: calc(90% - 60px); /* Responsive width */
+  height: 50vh;
+}
+
+.close {
+   position: absolute;
+   top: 20px;
+   right: 30px;
+   font-size:30px; 
+   color:white; 
+   cursor:pointer; 
+}
+
+.prev, .next {
+   position:absolute; 
+   top:50%; 
+   font-size:30px; 
+   color:white; 
+   background:none; 
+   border:none; 
+   cursor:pointer; 
+}
+
+.prev {
+   left:20px; 
+}
+
+.next {
+   right:20px; 
+}
+
+
+*{
+  /* border: 1px solid red; */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

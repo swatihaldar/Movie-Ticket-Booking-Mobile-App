@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:{movie}-{show}",
  "creation": "2024-10-18 11:50:24.866596",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -78,10 +79,11 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-11-13 19:08:12.964086",
+ "modified": "2024-12-26 19:06:07.678029",
  "modified_by": "Administrator",
  "module": "MovieMate",
  "name": "Ticket Booking",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
